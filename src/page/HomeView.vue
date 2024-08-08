@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import product from "../components/Product.vue";
+import Product from "../components/Product.vue";
 import Cart from "../components/Cart.vue";
 import { useStore } from "../store/index.ts";
 import { storeToRefs } from "pinia";
@@ -32,7 +32,7 @@ const addToCart = (prod: any) => {
     </transition>
     <div class="container">
       <section class="products">
-        <product
+        <Product
           v-for="(product, index) in products"
           :key="index"
           :product="product"
