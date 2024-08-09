@@ -30,9 +30,9 @@ const total = computed(() => {
       />
     </div>
 
-    <section class="products">
-        <CartProduct v-for="(prod, index) in cart" :key="index" :product="prod" />
-    </section>
+    <transition-group tag="section" class="products" name="cart">
+      <CartProduct v-for="(prod, index) in cart" :key="index" :product="prod" />
+    </transition-group>
 
     <div class="Checkout">
       <div class="total">
@@ -110,5 +110,19 @@ const total = computed(() => {
   background-color: #1f6997;
 }
 
-
+/* ------------- animation ------ */
+.cart-enter-from,
+.cart-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.cart-enter-to,
+.cart-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+.cart-enter-active,
+.cart-leave-active {
+  transition: all 0.3s ease;
+}
 </style>
