@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { Products } from "../types/types";
 
 
@@ -57,6 +57,10 @@ export const useStore = defineStore('addToCart', () => {
 
     const showCart = ref(false)
 
+    const countInCart = computed(()=>{
+        return cart.value.length 
+    })
+
 
 
 
@@ -64,5 +68,6 @@ export const useStore = defineStore('addToCart', () => {
         products,
         cart,
         showCart,
+        countInCart
     }
 })

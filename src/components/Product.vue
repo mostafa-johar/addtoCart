@@ -50,6 +50,7 @@ const add = (product: Products) => {
         </button>
       </section>
     </div>
+ 
   </div>
 </template>
 
@@ -106,4 +107,5 @@ const add = (product: Products) => {
 .product .info section:last-of-type button:hover {
   background-color: #1f6997;
 }
+
 </style>

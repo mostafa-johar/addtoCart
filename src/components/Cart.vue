@@ -75,6 +75,7 @@ const total = computed(() => {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 5px;
+  position: relative;
 }
 /* ------------------------------- */
 .cart .Checkout {
@@ -121,8 +122,14 @@ const total = computed(() => {
   opacity: 1;
   transform: scale(1);
 }
-.cart-enter-active,
+.cart-enter-active {
+  transition: all 0.3s ease;
+}
 .cart-leave-active {
   transition: all 0.3s ease;
+  position: absolute;
+}
+.cart-move{
+  transition: all .3s ease;
 }
 </style>

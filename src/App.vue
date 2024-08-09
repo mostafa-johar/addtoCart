@@ -5,7 +5,7 @@ import { storeToRefs } from "pinia";
 //  ---------------------------------------
 
 const store = useStore();
-const { showCart } = storeToRefs(store);
+const { showCart, countInCart } = storeToRefs(store);
 
 //  ---------------------------------------
 
@@ -23,6 +23,11 @@ document.addEventListener("keydown", (e) => {
       <nav class="nav">
         <RouterLink to="/" class="itemLink" exact-active-class="active">
           <img src="/src/assets/imgs/Home.svg" alt="Home.svg" />
+          <transition name="fade" appear>
+            <span class="countInCart" v-if="countInCart">{{
+              countInCart
+            }}</span>
+          </transition>
         </RouterLink>
         <img
           src="/src/assets/imgs/shoppingCart.svg"
@@ -62,5 +67,38 @@ nav a.itemLink {
   font-weight: 500;
   flex-grow: 1;
   text-align: center;
+  position: relative;
+}
+.countInCart {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(53, 218, 247);
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fade-enter-active {
+  transition: all 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-leave-active {
+  transition: all 0.3s ease;
 }
 </style>
